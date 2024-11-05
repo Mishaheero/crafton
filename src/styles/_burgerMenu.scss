@@ -1,0 +1,29 @@
+/* BurgerMenu.css */
+.burger-menu-button {
+    transition: transform 0.3s ease-in-out; 
+}
+
+.burger-menu-button:hover {
+    transform: scale(1.1); 
+}
+
+.menu-enter {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.menu-enter-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-exit {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-exit-active {
+    opacity: 0;
+    visibility: hidden;
+}
