@@ -4,7 +4,19 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        1200: "1248px",
+        1248: "1248px",
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1440px",
+      },
+
+      width: {
+        "swiper-width": 'calc(theme("screens.2xl") - 78%)',
+        "swiper-width-active": 'calc(theme("screens.2xl") - 70%)',
       },
       colors: {
         transparent: "transparent",
@@ -21,11 +33,15 @@ module.exports = {
           100: "#4B5563",
         },
         green: {
-          100: "#8BCAB1",
+          100: "#DCEEDE",
           200: "#5AAD8E",
           300: "#389173",
           400: "#2A7C62",
           500: "#1F5D4B",
+        },
+        gray: {
+          100: "#E0E7EA",
+          200: "#C2CFD6",
         },
       },
       fontFamily: {
@@ -48,14 +64,14 @@ module.exports = {
         ],
       },
       fontSize: {
-        xxs: [".6875rem", ".875rem"],
+        xxs: [".8rem", ".9rem"],
         xs: [".9rem", "1rem"],
         sm: ["1rem", "1.25rem"],
         base: ["1.125rem", "1.6875rem"],
         md: ["1.5rem", "2.25rem"],
         lg: ["2.25rem", "2.8125rem"],
         xl: ["4.5rem", "4.5rem"],
-        '2xl': ["6rem", "6rem"],
+        "2xl": ["6rem", "6rem"],
       },
 
       letterSpacing: {

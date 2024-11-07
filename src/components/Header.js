@@ -30,12 +30,17 @@ const breadcrumbItems = [
 const Header = () => {
   return (
     <header className="pt-6">
-      <div className="container px-4 mx-auto max-w-1200">
+      <div className="container px-4 mx-auto max-w-1248">
         <div className="flex items-center justify-between mb-10 lg:mb-[72px]">
-          <img src={logo} alt="Logo" className="h-8 xl:h-14 md:h-12 xl:me-0 me-4 md:me-6" />
-
+          <a href="/" className="relative">
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-[72px] xl:me-0 me-4 md:me-6"
+            />
+          </a>
           {/* Main navigation with NavLink for active state */}
-          <nav className="lg:ms-12 xl:ms-[118px] lg:block hidden">
+          <nav className="xl:ms-[118px] lg:block hidden">
             <ul className="flex justify-center">
               <li className="xl:me-8 me-6">
                 <NavLink
@@ -131,7 +136,7 @@ const Header = () => {
           </div>
 
           <ButtonLogin />
-          
+
           {/* BurgerMenu na urządzeniach mobilnych */}
           <BurgerMenu />
         </div>
