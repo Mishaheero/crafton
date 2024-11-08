@@ -13,11 +13,7 @@ module.exports = {
         xl: "1280px",
         "2xl": "1440px",
       },
-
-      width: {
-        "swiper-width": 'calc(theme("screens.2xl") - 78%)',
-        "swiper-width-active": 'calc(theme("screens.2xl") - 70%)',
-      },
+      
       colors: {
         transparent: "transparent",
         current: "currentColor",

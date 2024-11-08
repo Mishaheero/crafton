@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/identify/logo.svg";
-import ButtonLogin from "./ButtonLogin";
+import ButtonPrimary from "./ButtonPrimary";
 import { NavLink } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import BurgerMenu from "./BurgerMenu";
@@ -135,7 +135,7 @@ const Header = () => {
             </svg>
           </div>
 
-          <ButtonLogin />
+          <ButtonPrimary />
 
           {/* BurgerMenu na urządzeniach mobilnych */}
           <BurgerMenu />

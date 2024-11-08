@@ -4,7 +4,7 @@ const PrimaryTitle = ({ text }) => {
   return (
     <div>
       <svg
-        className="w-[79px] h-[50px]"
+        className="lg:w-[79px] lg:h-[50px] w-14 h-10"
         
         viewBox="0 0 79 50"
         fill="none"
@@ -42,7 +42,7 @@ const PrimaryTitle = ({ text }) => {
           </radialGradient>
         </defs>
       </svg>
-      <h2 className="mt-10 font-bold lg:text-xl text-darkBlue-400">{text}</h2>
+      <h2 className="mt-6 mb-8 text-lg font-bold lg:mt-10 lg:mb-16 lg:text-xl text-darkBlue-400">{text}</h2>
     </div>
   );
 };

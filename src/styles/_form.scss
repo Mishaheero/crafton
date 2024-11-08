@@ -1,0 +1,80 @@
+/* Overriding styles for input fields */
+
+input[type="text"],
+input[type="search"],
+input[type="date"],
+select {
+  border: 1px solid #E0E7EA; 
+  transition: border-color 0.3s ease; 
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: #2A7C62;
+  outline: none;
+  outline-offset: 0;
+}
+
+input[type="search"]::placeholder {
+  line-height: 24px;
+}
+
+/* Customizing styles for select elements */
+
+select {
+  appearance: none; /* Removing default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2221%22 height=%2220%22 viewBox=%220 0 21 20%22 fill=%22none%22%3E%3Cpath d=%22M15.6667 7.5L10.6667 12.5L5.66667 7.5%22 stroke=%22%234B5563%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+  width: 191px;
+
+  &.items {
+    width: 80px;
+    padding-right: 50px;
+    padding-left: 18px;
+    background-position: right 22px center;
+  }
+}
+
+/* Custom style for input[type="date"] */
+input[type="date"] {
+  appearance: none; /* Removing default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2221%22 height=%2220%22 viewBox=%220 0 21 20%22 fill=%22none%22%3E%3Cpath d=%22M15.6667 7.5L10.6667 12.5L5.66667 7.5%22 stroke=%22%234B5563%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center; 
+  border: 1px solid #E0E7EA;
+  transition: border-color 0.3s ease;
+}
+
+input[type="date"]::placeholder {
+  color: transparent; 
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus {
+  background-color: #f9f9f9; 
+}
+input[type="text"]::placeholder,
+input[type="search"]::placeholder,
+input[type="date"]::placeholder {
+  color: #4B5563;
+}
+
+
+input[type="text"].active,
+input[type="search"].active,
+input[type="date"]:focus {
+  border-color: #2A7C62;
+  outline: none;
+}
+

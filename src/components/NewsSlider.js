@@ -28,11 +28,6 @@ const slidesData = [
     text: "Empowering Farmers through Sustainable Practices",
     readTime: "5 min read",
   },
-  {
-    image: photo3,
-    text: "Empowering Farmers through Sustainable Practices",
-    readTime: "5 min read",
-  }
 ];
 
 const NewsSlider = () => {
