@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import PrimaryTitle from "./components/PrimaryTitle";
 import NewsSlider from "./components/NewsSlider";
 import NewsFilter from "./components/NewsFilter";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -17,12 +18,13 @@ const App = () => {
             <NewsSlider />
           </div>
         </section>
-        <section className="overflow-hidden lg:py-24">
+        <section className="py-12 overflow-hidden lg:py-24">
           <div className="container px-4 mx-auto max-w-1248">
             <PrimaryTitle text="Latest news" />
             <NewsFilter />
           </div>
         </section>
+        <Footer />
       </main>
     </>
   );

@@ -29,7 +29,7 @@ const breadcrumbItems = [
 
 const Header = () => {
   return (
-    <header className="pt-6">
+    <header id="header" className="pt-6">
       <div className="container px-4 mx-auto max-w-1248">
         <div className="flex items-center justify-between mb-10 lg:mb-[72px]">
           <a href="/" className="relative">
