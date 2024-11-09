@@ -1,32 +1,56 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import PrimaryTitle from "./components/PrimaryTitle";
-import NewsSlider from "./components/NewsSlider";
-import NewsFilter from "./components/NewsFilter";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer"; 
+
+
+import News from "./pages/News"; 
+import WhoWeAre from "./pages/WhoWeAre";
+import OurInvestment from "./pages/OurInvestment";
+import OurImpact from "./pages/OurImpact";
+import Contact from "./pages/Contact";
+import Career from "./pages/Career";
+import Home from "./pages/Home";
+import MediaCenter from "./pages/MediaCenter";
 
 const App = () => {
   return (
-    <>
+    <div>
       <Header />
+
       <main>
-        <section className="pt-12 overflow-hidden lg:pt-24">
-          <div className="container px-4 mx-auto max-w-1248">
-            <PrimaryTitle text="Featured news" />
-          </div>
-          <div className="container px-4 mx-auto max-w-1248">
-            <NewsSlider />
-          </div>
-        </section>
-        <section className="py-12 overflow-hidden lg:py-24">
-          <div className="container px-4 mx-auto max-w-1248">
-            <PrimaryTitle text="Latest news" />
-            <NewsFilter />
-          </div>
-        </section>
-        <Footer />
+        <Routes>
+          {/* Page Home */}
+          <Route path="/" element={<Home />} />
+
+          {/* Page Who we are */}
+          <Route path="/who-we-are" element={<WhoWeAre />} />
+
+          {/* Page Our Investment */}
+          <Route path="/investment" element={<OurInvestment />} />
+
+          {/* Page Our Impact */}
+          <Route path="/impact" element={<OurImpact />} />
+
+          {/* Page Media Center */}
+          <Route path="/media" element={<MediaCenter/>} />
+
+          {/* Page News */}
+          <Route
+            path="/media/news"
+            element={<News />} 
+          />
+
+          {/* Page Contact */}
+          <Route path="/contact" element={<Contact />} />
+
+          {/* Page Career */}
+          <Route path="/career" element={<Career />} />
+        </Routes>
       </main>
-    </>
+
+      <Footer />
+    </div>
   );
 };
 

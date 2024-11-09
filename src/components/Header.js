@@ -1,11 +1,12 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import logo from "../assets/identify/logo.svg";
 import ButtonPrimary from "./ButtonPrimary";
 import { NavLink } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import BurgerMenu from "./BurgerMenu";
 
-// Defining all breadcrumb elements
+// Defining breadcrumb elements
 const breadcrumbItems = [
   {
     label: "Home",
@@ -22,12 +23,60 @@ const breadcrumbItems = [
   { label: "Who we are", path: "/who-we-are" },
   { label: "Our Investment", path: "/investment" },
   { label: "Our Impact", path: "/impact" },
-  { label: "Media Center", path: "/media" },
+  {
+    label: "Media Center",
+    path: "/media",
+    children: [{ label: "News", path: "/media/news" }],
+  },
   { label: "Contact", path: "/contact" },
   { label: "Career", path: "/career" },
 ];
 
 const Header = () => {
+  const location = useLocation(); // Hook to get the current path
+
+  // Function that sets the title and description based on the current page
+  const getHeaderContent = () => {
+    switch (location.pathname) {
+      case "/":
+        return { title: "Home", description: "Welcome to our homepage!" };
+      case "/who-we-are":
+        return {
+          title: "Who We Are",
+          description: "Learn more about our company and mission.",
+        };
+      case "/investment":
+        return {
+          title: "Our Investment",
+          description: "Explore our investment strategy.",
+        };
+      case "/impact":
+        return {
+          title: "Our Impact",
+          description: "Discover the impact we've made.",
+        };
+      case "/media":
+        return {
+          title: "Media Center",
+          description: "Stay updated with the latest news.",
+        };
+      case "/media/news":
+        return {
+          title: "News",
+          description:
+            "Stay updated with the latest developments and achievements in the agricultural and livestock investment sector. From groundbreaking innovations to strategic global partnerships, explore our recent news and insights here.",
+        };
+      case "/contact":
+        return { title: "Contact", description: "Get in touch with us." };
+      case "/career":
+        return { title: "Career", description: "Join our team!" };
+      default:
+        return { title: "Welcome", description: "Browse through our website." };
+    }
+  };
+
+  const { title, description } = getHeaderContent();
+
   return (
     <header id="header" className="pt-6">
       <div className="container px-4 mx-auto max-w-1248">
@@ -78,7 +127,8 @@ const Header = () => {
                   Our impact
                 </NavLink>
               </li>
-              <li className="xl:me-8 me-6">
+              <li className="relative xl:me-8 me-6 group pe-6">
+                {" "}
                 <NavLink
                   to="/media"
                   className={({ isActive }) =>
@@ -89,6 +139,32 @@ const Header = () => {
                 >
                   Media center
                 </NavLink>
+                {/* Sub-menu */}
+                <ul className="absolute hidden w-full pt-2 bg-white rounded-md shadow-lg group-hover:block">
+                  <li className="px-4 py-2 hover:text-darkBlue-100">
+                    <NavLink
+                      to="/media/news"
+                      className={({ isActive }) =>
+                        `text-sm transition duration-300 ${
+                          isActive ? "text-darkBlue-100" : ""
+                        }`
+                      }
+                    >
+                      News
+                    </NavLink>
+                  </li>
+                </ul>
+                <div className="absolute right-0 -translate-y-1/2 top-1/2">
+                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
+                    <path
+                      d="M15.6667 7.5L10.6667 12.5L5.66667 7.5"
+                      stroke="#4B5563"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
               </li>
               <li className="xl:me-8 me-6">
                 <NavLink
@@ -137,20 +213,17 @@ const Header = () => {
 
           <ButtonPrimary />
 
-          {/* BurgerMenu na urządzeniach mobilnych */}
+          {/* BurgerMenu for mobile devices */}
           <BurgerMenu />
         </div>
         <Breadcrumb items={breadcrumbItems} />
-        <div className="flex justify-between md:flex-row flex-col pt-10 lg:pt-[68px] gap-14 lg:gap-[100px] items-center">
+        <div className="flex justify-between md:flex-row flex-col pt-10 lg:pt-[68px] gap-14 lg:gap-[100px] items-center pb-12 lg:pb-24">
           <div className="w-full md:basis-[75%]">
             <h1 className="mb-4 text-xl font-bold lg:text-2xl text-darkBlue-400">
-              News
+              {title}
             </h1>
             <p className="text-base text-darkBlue-400 lg:text-md">
-              Stay updated with the latest developments and achievements in the
-              agricultural and livestock investment sector. From groundbreaking
-              innovations to strategic global partnerships, explore our recent
-              news and insights here.
+              {description}
             </p>
           </div>
           <div className="w-full md:basis-[25%] md:block hidden">
