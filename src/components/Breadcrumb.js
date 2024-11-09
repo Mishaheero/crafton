@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// Komponent Breadcrumb przyjmuje tablicę `items` jako props
+// The Breadcrumb component accepts an `items` array as a prop
 const Breadcrumb = ({ items }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Filtrujemy breadcrumby tak, by odpowiadały dokładnym lub nadrzędnym ścieżkom
+// We filter the breadcrumbs to match exact or parent paths
   const renderBreadcrumbs = (breadcrumbItems) => {
     return breadcrumbItems
       .filter((item) => {
@@ -16,7 +16,7 @@ const Breadcrumb = ({ items }) => {
       })
       .map((item, index) => (
         <li key={index} className="flex items-center">
-          {/* Render separator dla wszystkich elementów oprócz pierwszego */}
+          {/* Render separator for all items except the first one */}
           {index !== 0 && (
             <span className="mx-2">
               <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
@@ -31,7 +31,7 @@ const Breadcrumb = ({ items }) => {
             </span>
           )}
           
-          {/* Link dla ikony Home lub zwykły breadcrumb link */}
+          {/* Link for the Home icon or regular breadcrumb link */}
           {item.icon && item.label === "Home" ? (
             <Link to={item.path} className="flex items-center text-darkBlue-400">
               {item.icon}
@@ -42,7 +42,7 @@ const Breadcrumb = ({ items }) => {
             </Link>
           )}
 
-          {/* Renderowanie podrzędnych breadcrumbów */}
+          {/* Rendering child breadcrumbs */}
           {item.children && currentPath.startsWith(item.path + '/') && (
             <ul>
               {item.children.map((subItem, subIndex) => (
@@ -71,7 +71,7 @@ const Breadcrumb = ({ items }) => {
 
   return (
     <nav aria-label="breadcrumb">
-      <ol className="flex text-gray-500">
+      <ol className="flex text-black-500">
         {renderBreadcrumbs(items)}
       </ol>
     </nav>

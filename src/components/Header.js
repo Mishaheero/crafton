@@ -2,9 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../assets/identify/logo.svg";
 import ButtonPrimary from "./ButtonPrimary";
-import { NavLink } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import BurgerMenu from "./BurgerMenu";
+import NavMenu from "./NavMenu";
 
 // Defining breadcrumb elements
 const breadcrumbItems = [
@@ -82,131 +82,36 @@ const Header = () => {
       <div className="container px-4 mx-auto max-w-1248">
         <div className="flex items-center justify-between mb-10 lg:mb-[72px]">
           <a href="/" className="relative">
-            <img
-              src={logo}
-              alt="Logo"
-              className="w-[72px] xl:me-0 me-4 md:me-6"
-            />
+            <img src={logo} alt="Logo" className="w-[72px]" />
           </a>
           {/* Main navigation with NavLink for active state */}
-          <nav className="xl:ms-[118px] lg:block hidden">
-            <ul className="flex justify-center">
-              <li className="xl:me-8 me-6">
-                <NavLink
-                  to="/who-we-are"
-                  className={({ isActive }) =>
-                    `text-sm transition duration-300 hover:text-darkBlue-100 ${
-                      isActive ? "text-darkBlue-100" : ""
-                    }`
-                  }
-                >
-                  Who we are
-                </NavLink>
-              </li>
-              <li className="xl:me-8 me-6">
-                <NavLink
-                  to="/investment"
-                  className={({ isActive }) =>
-                    `text-sm transition duration-300 hover:text-darkBlue-100 ${
-                      isActive ? "text-darkBlue-100" : ""
-                    }`
-                  }
-                >
-                  Our investment
-                </NavLink>
-              </li>
-              <li className="xl:me-8 me-6">
-                <NavLink
-                  to="/impact"
-                  className={({ isActive }) =>
-                    `text-sm transition duration-300 hover:text-darkBlue-100 ${
-                      isActive ? "text-darkBlue-100" : ""
-                    }`
-                  }
-                >
-                  Our impact
-                </NavLink>
-              </li>
-              <li className="relative xl:me-8 me-6 group pe-6">
-                {" "}
-                <NavLink
-                  to="/media"
-                  className={({ isActive }) =>
-                    `text-sm transition duration-300 hover:text-darkBlue-100 ${
-                      isActive ? "text-darkBlue-100" : ""
-                    }`
-                  }
-                >
-                  Media center
-                </NavLink>
-                {/* Sub-menu */}
-                <ul className="absolute hidden w-full pt-2 bg-white rounded-md shadow-lg group-hover:block">
-                  <li className="px-4 py-2 hover:text-darkBlue-100">
-                    <NavLink
-                      to="/media/news"
-                      className={({ isActive }) =>
-                        `text-sm transition duration-300 ${
-                          isActive ? "text-darkBlue-100" : ""
-                        }`
-                      }
-                    >
-                      News
-                    </NavLink>
-                  </li>
-                </ul>
-                <div className="absolute right-0 -translate-y-1/2 top-1/2">
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
-                    <path
-                      d="M15.6667 7.5L10.6667 12.5L5.66667 7.5"
-                      stroke="#4B5563"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </li>
-              <li className="xl:me-8 me-6">
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    `text-sm transition duration-300 hover:text-darkBlue-100 ${
-                      isActive ? "text-darkBlue-100" : ""
-                    }`
-                  }
-                >
-                  Contact
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/career"
-                  className={({ isActive }) =>
-                    `text-sm transition duration-300 hover:text-darkBlue-100 ${
-                      isActive ? "text-darkBlue-100" : ""
-                    }`
-                  }
-                >
-                  Career
-                </NavLink>
-              </li>
-            </ul>
+          <nav className="hidden lg:block xl:ms-[118px] lg:ms-6">
+            <NavMenu isMobile={false} />
           </nav>
 
           {/* Language Switcher */}
           <div className="lang-switcher ms-auto sm:me-0 me-3">
-            <p>العربية</p>
+            <p className="transition duration-300 cursor-default hover:text-darkBlue-100">
+              العربية
+            </p>
           </div>
 
           {/* Search Icon */}
-          <div className="hidden mx-3 xl:mx-5 search-btn sm:block">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <div className="hidden mx-3 xl:mx-5 search-btn sm:block group">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="transition-colors duration-300"
+            >
               <path
                 d="M21.0004 21.0004L16.6504 16.6504M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
                 stroke="#4B5563"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="transition-colors duration-300 group-hover:stroke-darkBlue-100"
               />
             </svg>
           </div>
@@ -215,6 +120,7 @@ const Header = () => {
 
           {/* BurgerMenu for mobile devices */}
           <BurgerMenu />
+          
         </div>
         <Breadcrumb items={breadcrumbItems} />
         <div className="flex justify-between md:flex-row flex-col pt-10 lg:pt-[68px] gap-14 lg:gap-[100px] items-center pb-12 lg:pb-24">
