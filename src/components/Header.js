@@ -5,6 +5,7 @@ import ButtonPrimary from "./ButtonPrimary";
 import Breadcrumb from "./Breadcrumb";
 import BurgerMenu from "./BurgerMenu";
 import NavMenu from "./NavMenu";
+import MainTitle from "./MainTitle";
 
 // Defining breadcrumb elements
 const breadcrumbItems = [
@@ -87,10 +88,10 @@ const Header = () => {
       <div className="container px-4 mx-auto max-w-1248">
         <div className="flex items-center justify-between mb-10 lg:mb-[72px]">
           <a href="/" className="relative">
-            <img src={logo} alt="Logo" className="w-[72px]" />
+            <img src={logo} alt="Logo" className="xl:w-[72px] w-[62px]" />
           </a>
           {/* Main navigation with NavLink for active state */}
-          <nav className="hidden lg:block xl:ms-[118px] lg:ms-6">
+          <nav className="hidden lg:block xl:ms-[96px] lg:ms-6">
             <NavMenu isMobile={false} />
           </nav>
 
@@ -127,11 +128,10 @@ const Header = () => {
           <BurgerMenu />
         </div>
         <Breadcrumb items={breadcrumbItems} />
-        <div className="flex justify-between md:flex-row flex-col pt-10 lg:pt-[68px] gap-14 lg:gap-[100px] items-center pb-12 lg:pb-24">
+        <div className="flex justify-between md:flex-row flex-col pt-10 lg:pt-[68px] md:gap-14 lg:gap-[100px] items-center pb-12 lg:pb-24">
           <div className="w-full md:basis-[75%]">
-            <h1 className="mb-4 text-xl font-bold lg:text-2xl text-darkBlue-400">
-              {title}
-            </h1>
+          <MainTitle text={title}/>
+            
             <p className="text-base text-darkBlue-400 lg:text-md">
               {description}
             </p>

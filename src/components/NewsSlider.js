@@ -67,7 +67,7 @@ const NewsSlider = () => {
   };
 
   return (
-    <div className="relative news-slider-container">
+    <div className="relative pt-12 lg:pt-24 news-slider-container">
       <Swiper
         ref={swiperRef}
         modules={[Navigation, Pagination, Scrollbar]}
@@ -123,7 +123,7 @@ const NewsSlider = () => {
                 <div className="me-8 lg:me-10 xl:me-20">
                   <SliderTitle text={slide.text} />
                 </div>
-                <button className="p-6 transition-opacity border border-white rounded-full opacity-0 xl:p-10 swiper-button-prev custom-prev group-hover:opacity-100 300ms">
+                <button className="p-6 transition-opacity border border-white rounded-full lg:opacity-0 xl:p-14 swiper-button-prev custom-prev lg:group-hover:opacity-100 300ms">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M9 6L15 12L9 18"
@@ -144,7 +144,7 @@ const NewsSlider = () => {
         <div>
           <button
             ref={prevRef}
-            className={`p-4 border rounded-lg swiper-button-prev custom-prev lg:ms-4 me-2 ${
+            className={`p-3 lg:p-4 border rounded-lg swiper-button-prev custom-prev lg:ms-4 me-2 ${
               isBeginning ? "border-gray-400" : "border-green-400"
             }`}
             aria-label="Previous slide"
@@ -161,7 +161,7 @@ const NewsSlider = () => {
           </button>
           <button
             ref={nextRef}
-            className={`p-4 border rounded-lg swiper-button-next custom-next ${
+            className={`p-3 lg:p-4 border rounded-lg swiper-button-next custom-next ${
               isEnd ? "border-gray-400" : "border-green-400"
             }`}
             aria-label="Next slide"

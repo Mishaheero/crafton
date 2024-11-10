@@ -137,7 +137,7 @@ const NewsFilter = () => {
   return (
     <div>
       <form
-        className="flex flex-col flex-wrap justify-between gap-5 mb-10 text-xs sm:text-sm sm:flex-row lg:mb-14"
+        className="flex flex-col flex-wrap justify-between gap-5 my-12 text-xs sm:text-sm sm:flex-row lg:mb-14 lg:mt-16"
         onSubmit={(e) => e.preventDefault()}
       >
         <div className="h-auto">

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const MainTitle = ({ title }) => {
+const MainTitle = ({ text }) => {
   return (
-    <h1 className="mb-4 text-xl font-bold lg:text-2xl text-darkBlue-400">
-      {title}
+    <h1 className="mb-4 text-lg font-bold md:text-xl lg:text-2xl text-darkBlue-400">
+      {text}
     </h1>
   );
 };

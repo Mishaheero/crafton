@@ -2,7 +2,7 @@ import React from "react";
 
 const PrimaryTitle = ({ text }) => {
   return (
-    <div>
+    <>
       <svg
         className="lg:w-[79px] lg:h-[50px] w-14 h-10"
         
@@ -42,8 +42,8 @@ const PrimaryTitle = ({ text }) => {
           </radialGradient>
         </defs>
       </svg>
-      <h2 className="mt-6 mb-8 text-lg font-bold lg:mt-10 lg:mb-16 lg:text-xl text-darkBlue-400">{text}</h2>
-    </div>
+      <h2 className="mt-4 text-lg font-bold lg:mt-10 lg:text-xl text-darkBlue-400">{text}</h2>
+    </>
   );
 };
 

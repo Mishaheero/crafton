@@ -75,9 +75,7 @@ const BurgerMenu = () => {
         } absolute top-0 left-0 z-40 w-full h-full bg-white shadow-lg transition-all duration-300 ease-in-out`}
       >
         <div className="flex justify-between p-4 transition-opacity duration-300">
-          <a href="/" className="relative">
-            <img src={accent} alt="Logo" className="w-[72px]" />
-          </a>
+          <img src={accent} alt="accent" className="w-[72px]" />
           <button
             onClick={toggleMenu}
             className="text-black-100 hover:text-darkBlue-100 focus:outline-none"

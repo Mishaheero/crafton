@@ -16,11 +16,11 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
           : "flex justify-center"
       }
     >
-      <li className={isMobile ? "" : "xl:me-8 me-6"}>
+      <li className={isMobile ? "" : "xl:me-8 me-5"}>
         <NavLink
           to="/who-we-are"
           className={({ isActive }) =>
-            `text-sm transition duration-300 hover:text-darkBlue-100 ${
+            `text-base lg:text-sm transition duration-300 hover:text-darkBlue-100 ${
               isActive ? "text-darkBlue-100" : ""
             }`
           }
@@ -29,11 +29,11 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
           Who we are
         </NavLink>
       </li>
-      <li className={isMobile ? "" : "xl:me-8 me-6"}>
+      <li className={isMobile ? "" : "xl:me-8 me-5"}>
         <NavLink
           to="/investment"
           className={({ isActive }) =>
-            `text-sm transition duration-300 hover:text-darkBlue-100 ${
+            `text-base lg:text-sm transition duration-300 hover:text-darkBlue-100 ${
               isActive ? "text-darkBlue-100" : ""
             }`
           }
@@ -42,11 +42,11 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
           Our Investment
         </NavLink>
       </li>
-      <li className={isMobile ? "" : "xl:me-8 me-6"}>
+      <li className={isMobile ? "" : "xl:me-8 me-5"}>
         <NavLink
           to="/impact"
           className={({ isActive }) =>
-            `text-sm transition duration-300 hover:text-darkBlue-100 ${
+            `text-base lg:text-sm transition duration-300 hover:text-darkBlue-100 ${
               isActive ? "text-darkBlue-100" : ""
             }`
           }
@@ -57,13 +57,13 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
       </li>
 
       {/* Media Center with Chevron */}
-      <li className={isMobile ? "" : "relative xl:me-8 me-6 group pe-6"}>
+      <li className={isMobile ? "" : "relative xl:me-8 me-5 group pe-6"}>
         {isMobile ? (
           <>
             <div className="flex items-center gap-5">
               <NavLink
                 to="/media"
-                className="flex items-center w-full text-black-100 hover:text-darkBlue-100 focus:outline-none"
+                className="flex items-center w-full text-base lg:text-sm text-black-100 hover:text-darkBlue-100 focus:outline-none"
                 onClick={onLinkClick}
               >
                 Media Center
@@ -71,8 +71,8 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
               {/* Chevron Icon for Mobile */}
               <span className="cursor-pointer">
                 <svg
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   className={`transition-transform duration-200 ${
@@ -95,7 +95,7 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
                 <li>
                   <Link
                     to="/media/news"
-                    className="text-black-100 hover:text-darkBlue-100"
+                    className="text-sm text-black-100 hover:text-darkBlue-100"
                     onClick={onLinkClick}
                   >
                     News
@@ -109,7 +109,7 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
             <NavLink
               to="/media"
               className={({ isActive }) =>
-                `text-sm transition duration-300 hover:text-darkBlue-100 ${
+                `lg:text-sm transition duration-300 hover:text-darkBlue-100 ${
                   isActive ? "text-darkBlue-100" : ""
                 }`
               }
@@ -138,12 +138,12 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
               </svg>
             </span>
             {/* Dropdown for Desktop */}
-            <ul className="absolute hidden w-full pt-2 bg-white rounded-md shadow-lg group-hover:block">
+            <ul className="absolute hidden w-full pt-2 bg-white rounded-md shadow-sm group-hover:block">
               <li className="px-4 py-2 hover:text-darkBlue-100">
                 <NavLink
                   to="/media/news"
                   className={({ isActive }) =>
-                    `text-sm transition duration-300 ${
+                    `text-base lg:text-sm transition duration-300 ${
                       isActive ? "text-darkBlue-100" : ""
                     }`
                   }
@@ -156,11 +156,11 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
         )}
       </li>
 
-      <li className={isMobile ? "" : "xl:me-8 me-6"}>
+      <li className={isMobile ? "" : "xl:me-8 me-5"}>
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            `text-sm transition duration-300 hover:text-darkBlue-100 ${
+            `text-base lg:text-sm transition duration-300 hover:text-darkBlue-100 ${
               isActive ? "text-darkBlue-100" : ""
             }`
           }
@@ -173,7 +173,7 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
         <NavLink
           to="/career"
           className={({ isActive }) =>
-            `text-sm transition duration-300 hover:text-darkBlue-100 ${
+            `text-base lg:text-sm transition duration-300 hover:text-darkBlue-100 ${
               isActive ? "text-darkBlue-100" : ""
             }`
           }
