@@ -57,11 +57,7 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
       </li>
 
       {/* Media Center with Chevron */}
-      <li
-        className={
-          isMobile ? "" : "relative xl:me-8 me-6 group pe-6"
-        }
-      >
+      <li className={isMobile ? "" : "relative xl:me-8 me-6 group pe-6"}>
         {isMobile ? (
           <>
             <div className="flex items-center gap-5">
@@ -121,21 +117,26 @@ const NavMenu = ({ isMobile, onLinkClick }) => {
               Media Center
             </NavLink>
             {/* Chevron for Desktop with Hover Effect */}
-            <div
+            <span
               className={`absolute right-0 top-1/2 -translate-y-1/2 transition-transform duration-200 group-hover:rotate-90 ${
                 isMediaOpen ? "rotate-90" : ""
               }`}
             >
-              <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
+              <svg
+                width="13"
+                height="8"
+                viewBox="0 0 13 8"
+                fill="none"
+              >
                 <path
-                  d="M15.6667 7.5L10.6667 12.5L5.66667 7.5"
+                  d="M11.3333 1.5L6.33334 6.5L1.33334 1.5"
                   stroke="#4B5563"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-            </div>
+            </span>
             {/* Dropdown for Desktop */}
             <ul className="absolute hidden w-full pt-2 bg-white rounded-md shadow-lg group-hover:block">
               <li className="px-4 py-2 hover:text-darkBlue-100">

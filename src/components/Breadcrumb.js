@@ -6,22 +6,25 @@ const Breadcrumb = ({ items }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-// We filter the breadcrumbs to match exact or parent paths
+  // We filter the breadcrumbs to match exact or parent paths
   const renderBreadcrumbs = (breadcrumbItems) => {
     return breadcrumbItems
       .filter((item) => {
-        // Zawsze pokazujemy Home, jeśli jesteśmy na stronie głównej lub każda inna ścieżka
-        if (item.label === "Home") return currentPath === "/" || currentPath.startsWith(item.path);
-        return currentPath === item.path || currentPath.startsWith(item.path + '/');
+        // We always appear in Home if we are on the home page or any other path
+        if (item.label === "Home")
+          return currentPath === "/" || currentPath.startsWith(item.path);
+        return (
+          currentPath === item.path || currentPath.startsWith(item.path + "/")
+        );
       })
       .map((item, index) => (
         <li key={index} className="flex items-center">
           {/* Render separator for all items except the first one */}
           {index !== 0 && (
             <span className="mx-2">
-              <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
-                  d="M1 1L7 7L1 13"
+                  d="M9 6L15 12L9 18"
                   stroke="#C2CFD6"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -30,10 +33,13 @@ const Breadcrumb = ({ items }) => {
               </svg>
             </span>
           )}
-          
+
           {/* Link for the Home icon or regular breadcrumb link */}
           {item.icon && item.label === "Home" ? (
-            <Link to={item.path} className="flex items-center text-darkBlue-400">
+            <Link
+              to={item.path}
+              className="flex items-center text-darkBlue-400"
+            >
               {item.icon}
             </Link>
           ) : (
@@ -43,14 +49,14 @@ const Breadcrumb = ({ items }) => {
           )}
 
           {/* Rendering child breadcrumbs */}
-          {item.children && currentPath.startsWith(item.path + '/') && (
+          {item.children && currentPath.startsWith(item.path + "/") && (
             <ul>
               {item.children.map((subItem, subIndex) => (
                 <li key={subIndex} className="flex items-center">
                   <span className="mx-2">
-                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                       <path
-                        d="M1 1L7 7L1 13"
+                        d="M9 6L15 12L9 18"
                         stroke="#C2CFD6"
                         strokeWidth="2"
                         strokeLinecap="round"
@@ -71,9 +77,7 @@ const Breadcrumb = ({ items }) => {
 
   return (
     <nav aria-label="breadcrumb">
-      <ol className="flex text-black-500">
-        {renderBreadcrumbs(items)}
-      </ol>
+      <ol className="flex text-black-500">{renderBreadcrumbs(items)}</ol>
     </nav>
   );
 };
