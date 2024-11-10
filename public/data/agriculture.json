@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Farmers Face New Challenges in 2024",
+    "description": "As the agricultural landscape evolves, farmers are confronted with new challenges in 2024, ranging from climate change to market fluctuations. Innovative solutions are crucial for adapting to these...",
+    "category": "agriculture",
+    "date": "12/06/2024",
+    "image": "/assets/images-posts/farmers.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Grain Price Trends for This Season",
+    "description": "Current trends in grain prices reveal fluctuations driven by supply and demand dynamics. Farmers and investors must stay informed to navigate the complexities of the market effectively.",
+    "category": "agriculture",
+    "date": "04/03/2024",
+    "image": "/assets/images-posts/trends.jpeg"
+  }
+]

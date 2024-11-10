@@ -1,41 +1,62 @@
 import React, { useState, useEffect } from "react";
-import agriTechData from "../data/agri-tech.json";
-import agricultureData from "../data/agriculture.json";
-import sustainableFarmingData from "../data/farming.json";
 import ButtonReadMore from "./ButtonReadMore";
 import ButtonPrimary from "./ButtonPrimary";
-import DatePicker from "./DatePicker"; // Importujemy DatePicker
+import DatePicker from "./DatePicker";
 import "../styles/_elements.scss";
 import "../styles/_form.scss";
 
 const NewsFilter = () => {
   const [news, setNews] = useState([]);
   const [filteredNews, setFilteredNews] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(""); // Kategoria domyślnie pusta
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
-  const [sortBy, setSortBy] = useState(""); // Ustawiamy początkową wartość na pusty string
+  const [sortBy, setSortBy] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(9);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Use useEffect to fetch data
   useEffect(() => {
-    const allNews = [
-      ...agricultureData,
-      ...agriTechData,
-      ...sustainableFarmingData,
-    ];
-    setNews(allNews);
-    setFilteredNews(allNews);
+    const fetchNews = async () => {
+      try {
+        const agricultureResponse = await fetch("/data/agriculture.json");
+        const agriTechResponse = await fetch("/data/agri-tech.json");
+        const farmingResponse = await fetch("/data/farming.json");
+
+        // Check if the responses are successful
+        if (
+          agricultureResponse.ok &&
+          agriTechResponse.ok &&
+          farmingResponse.ok
+        ) {
+          const agricultureData = await agricultureResponse.json();
+          const agriTechData = await agriTechResponse.json();
+          const farmingData = await farmingResponse.json();
+
+          // Combine all the data
+          const allNews = [...agricultureData, ...agriTechData, ...farmingData];
+
+          setNews(allNews);
+          setFilteredNews(allNews);
+        } else {
+          console.error("Failed to fetch news data");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchNews();
   }, []);
 
-  // Function to parse a date string in the format "DD/MM/YYYY" and return a Date object
+  // Function to parse the date in the "DD/MM/YYYY" format
   const parseDate = (dateString) => {
     const [day, month, year] = dateString.split("/");
     return new Date(`${year}-${month}-${day}`);
   };
 
-  // Function to apply various filters and sorting to the news array
+  // Function to apply filters
   const applyFilters = (category, search, date, sort) => {
     let filtered = news;
 
@@ -59,7 +80,7 @@ const NewsFilter = () => {
       });
     }
 
-    // Filter by date if a date is specified
+   // Filter by date if specified
     if (date) {
       const parsedDate = parseDate(date);
       filtered = filtered.filter((newsItem) => {
@@ -68,7 +89,7 @@ const NewsFilter = () => {
       });
     }
 
-    // Sorting by date if the "sort" option is "date"
+   // Sort by date if the "sort" option is "date"
     if (sort === "date") {
       filtered = filtered.sort((a, b) => {
         const dateA = parseDate(a.date);
@@ -79,13 +100,12 @@ const NewsFilter = () => {
       filtered = filtered.sort((a, b) => a.title.localeCompare(b.title));
     }
 
-    // Update the state with the filtered news list
+   // Update the state with the filtered news list
     setFilteredNews(filtered);
-    // Reset to the first page of the filtered results
     setCurrentPage(1);
   };
 
-  // Function to handle page change
+// Function to handle page change
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -96,46 +116,46 @@ const NewsFilter = () => {
     setCurrentPage(1);
   };
 
-  // Pagination logic to get the current page's items
+  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredNews.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Total pages based on filtered news length
   const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
 
-  // Handle category change and reapply filters
+  // Handles category change and reapplies filters
   const handleCategoryChange = (e) => {
     const category = e.target.value || "";
     setSelectedCategory(category);
     applyFilters(category, searchTerm, selectedDate, sortBy);
   };
 
-  // Handle search term change and reapply filters
+  // Handles search term change and reapplies filters
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
     applyFilters(selectedCategory, term, selectedDate, sortBy);
   };
 
-  // Handle sort option change and reapply filters
+ // Handles sort option change and reapplies filters
   const handleSortChange = (e) => {
     const sortByValue = e.target.value;
     setSortBy(sortByValue);
     applyFilters(selectedCategory, searchTerm, selectedDate, sortByValue);
   };
 
-  // Reset all filters and show the original news list
+ // Resets all filters and shows the original news list
   const resetFilters = () => {
     setSelectedCategory("");
     setSearchTerm("");
     setSelectedDate("");
-    setSortBy(""); 
+    setSortBy("");
     setFilteredNews(news);
   };
 
   return (
     <div>
+      {/* Filter form */}
       <form
         className="flex flex-col flex-wrap justify-between gap-5 my-12 text-xs sm:text-sm sm:flex-row lg:mb-14 lg:mt-16"
         onSubmit={(e) => e.preventDefault()}
@@ -168,7 +188,7 @@ const NewsFilter = () => {
           <option value="Farming">Farming</option>
         </select>
 
-        {/* Wybór daty */}
+        {/* Date selection */}
         <DatePicker
           selectedDate={selectedDate}
           onDateChange={(date) => {
@@ -199,6 +219,7 @@ const NewsFilter = () => {
         </button>
       </form>
 
+      {/* Displaying results */}
       <div className="grid grid-cols-1 mb-10 md:mb-16 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 news-list">
         {currentItems.length > 0 ? (
           currentItems.map((newsItem, index) => (
@@ -243,6 +264,7 @@ const NewsFilter = () => {
         )}
       </div>
 
+      {/* Pagination */}
       <div className="flex flex-col flex-wrap items-center gap-5 md:justify-between md:flex-row md:gap-0">
         <div className="flex items-center justify-center order-1 w-full md:justify-start md:w-1/2 md:order-0">
           <label className="me-3" htmlFor="itemsPerPage">
@@ -260,7 +282,7 @@ const NewsFilter = () => {
           </select>
           <span className="text-xs md:text-sm">{` ${currentItems.length} of ${filteredNews.length} courses `}</span>
         </div>
-        
+
         <div className="flex justify-center w-full space-x-2 md:justify-end pagination md:w-1/2 md:order-1 order-0">
           <div className="flex items-center space-x-4 pagination">
             <ButtonPrimary
