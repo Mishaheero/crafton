@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-// Komponent LazyImage
+// LazyImage
 const LazyImage = ({ src, alt, className, style }) => {
   const imgRef = useRef(null);
   const [isInView, setIsInView] = useState(false);

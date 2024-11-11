@@ -13,10 +13,10 @@ const SocialIcons = () => {
       <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="me-[30px]">
         <TwitterIcon width="16" height="16" fill="#C2CFD6" />
       </a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="md:me-[40px]">
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="me-[30px]">
         <LinkedInIcon width="16" height="16" fill="#C2CFD6" />
       </a>
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="me-[30px]">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="me-0 lg-[48px]">
         <FacebookIcon width="16" height="16" fill="#C2CFD6" />
       </a>
     </>
