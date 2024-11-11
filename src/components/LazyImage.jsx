@@ -6,7 +6,6 @@ const LazyImage = ({ src, alt, className, style }) => {
   const [isInView, setIsInView] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false); 
 
-  
   const handleImageLoad = () => {
     setIsLoaded(true); 
   };

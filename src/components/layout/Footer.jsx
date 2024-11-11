@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="relative pt-[59px] pb-[95px] bg-darkBlue-500">
       <div className="container px-4 mx-auto max-w-1248">
-        <div className="flex flex-col items-center justify-between w-full gap-10 md:gap-0 md:flex-row">
+        <div className="flex flex-col items-center justify-between w-full gap-10 md:gap-12 md:flex-row">
           <nav>
             <ul className="flex flex-col items-center text-white md:flex-row">
               <li className="mb-5 text-xs font-light md:mb-0 md:me-12">
