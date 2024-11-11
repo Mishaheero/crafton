@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ButtonReadMore from "../buttons/ButtonReadMore";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import DatePicker from "../forms/DatePicker";
+import LazyImage from "../LazyImage"; 
 import EntryAnimation from "../EntryAnimation";
 import "../../styles/_elements.scss";
 import "../../styles/_form.scss";
@@ -232,9 +233,9 @@ const NewsFilter = () => {
             >
               <div className="relative h-full overflow-hidden border-gray-200 rounded-3xl border-e">
                 <div className="relative flex flex-col items-stretch h-full px-6 py-5 border-t border-b border-e-transparent rounded-3xl rounded-e-xl news-item">
-                  <div className="relative">
-                    <img
-                      className="w-full h-[227px] rounded-3xl"
+                  <div className="relative h-[227px] w-full">
+                    <LazyImage
+                      className="rounded-3xl"
                       src={newsItem.image}
                       alt={newsItem.title}
                     />

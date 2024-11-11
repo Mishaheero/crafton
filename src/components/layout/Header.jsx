@@ -7,6 +7,7 @@ import MobileMenu from "../navigation/MobileMenu";
 import NavMenu from "../navigation/NavMenu";
 import MainTitle from "../typography/MainTitle";
 import EntryAnimation from "../EntryAnimation";
+import { ReactComponent as HeaderIconBg } from '../../assets/icons/decorations/bg.svg';
 
 // Elements breadcrumb
 const breadcrumbItems = [
@@ -35,9 +36,8 @@ const breadcrumbItems = [
 ];
 
 const Header = () => {
-  const location = useLocation(); // Hook do pobierania aktualnej ścieżki
+  const location = useLocation();
   const [isSticky, setIsSticky] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
@@ -104,7 +104,7 @@ const Header = () => {
               className={`flex items-center justify-between mb-10 lg:mb-[72px] ${isSticky
                 ? "sticky top-0 z-50 bg-white shadow-lg w-full py-2 transition-all duration-300 ease-in-out"
                 : ""
-                } ${isMobileMenuOpen ? "h-full" : ""}`}
+                }`}
             >
               <div
                 className={`container mx-auto max-w-1248 ${isSticky
@@ -177,41 +177,9 @@ const Header = () => {
               </p>
             </EntryAnimation>
           </div>
-
           <div className="w-full md:basis-[25%] md:block hidden">
             <EntryAnimation animationType="entry-right">
-              <svg
-                className="w-48 md:w-[317px] h-full"
-                viewBox="0 0 317 412"
-                fill="none"
-              >
-                <g opacity="0.2">
-                  <path
-                    d="M1.49414 316.257C82.2274 315.453 147.521 249.864 148.323 168.742C67.5898 169.546 2.29572 235.135 1.49414 316.257Z"
-                    fill="#DCEEDE"
-                  />
-                  <path
-                    d="M1.49414 1.5C2.29572 82.6218 67.5898 148.229 148.323 149.015C147.539 67.9105 82.2274 2.30371 1.49414 1.5Z"
-                    fill="#DCEEDE"
-                  />
-                  <path
-                    d="M167.941 168.742C168.743 249.864 234.037 315.471 314.77 316.257C313.969 235.135 248.675 169.528 167.941 168.742Z"
-                    fill="#DCEEDE"
-                  />
-                  <path
-                    d="M167.941 149.015C248.675 148.211 313.969 82.6218 314.77 1.5C234.037 2.30371 168.743 67.8931 167.941 149.015Z"
-                    fill="#DCEEDE"
-                  />
-                  <path
-                    d="M1.49414 335.969C2.29572 417.091 67.5898 482.697 148.323 483.484C147.521 402.362 82.2274 336.755 1.49414 335.969Z"
-                    fill="#DCEEDE"
-                  />
-                  <path
-                    d="M249.668 335.969H167.941C168.726 371.402 197.565 399.881 233.026 399.881H314.753C313.969 364.448 285.129 335.969 249.668 335.969Z"
-                    fill="#DCEEDE"
-                  />
-                </g>
-              </svg>
+              <HeaderIconBg className="w-48 md:w-[317px] h-full" />
             </EntryAnimation>
           </div>
         </div>

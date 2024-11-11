@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { ReactComponent as ChevronBreadcrumbs } from '../../assets/icons/controls/chevron-breadcrumbs.svg';
 
 // The Breadcrumb component accepts an `items` array as a prop
 const Breadcrumb = ({ items }) => {
@@ -22,15 +23,7 @@ const Breadcrumb = ({ items }) => {
           {/* Render separator for all items except the first one */}
           {index !== 0 && (
             <span className="mx-2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M9 6L15 12L9 18"
-                  stroke="#C2CFD6"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <ChevronBreadcrumbs stroke="#C2CFD6" />
             </span>
           )}
 
@@ -54,15 +47,7 @@ const Breadcrumb = ({ items }) => {
               {item.children.map((subItem, subIndex) => (
                 <li key={subIndex} className="flex items-center">
                   <span className="mx-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M9 6L15 12L9 18"
-                        stroke="#C2CFD6"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <ChevronBreadcrumbs stroke="#C2CFD6" />
                   </span>
                   <Link to={subItem.path} className="text-xs text-darkBlue-400">
                     {subItem.label}

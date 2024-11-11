@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import EntryAnimation from "../EntryAnimation";
+import LazyImage from "../LazyImage"; 
 import "swiper/css";
 import "../../styles/_swiper.scss";
 import SliderTitle from "../typography/SliderTitle";
@@ -105,12 +106,12 @@ const NewsSlider = () => {
         >
           {slidesData.map((slide, index) => (
             <SwiperSlide key={index}>
-              <Link href="#" className="relative flex flex-col group">
+              <Link href="#" className="relative flex flex-col group rounded-[32px]">
                 <div className="absolute top-0 left-0 z-10 px-3 py-1 mx-8 mt-12 bg-green-100 rounded-2xl">
                   <p className="text-green-400 text-xxs">{slide.readTime}</p>
                 </div>
                 <div className="relative image dark-mask">
-                  <img
+                  <LazyImage
                     className="rounded-[32px]"
                     src={slide.image}
                     alt={slide.text}

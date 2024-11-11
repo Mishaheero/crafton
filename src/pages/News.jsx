@@ -12,6 +12,7 @@ const News = () => {
           <NewsSlider />
         </div>
       </section>
+
       <section className="py-12 overflow-hidden lg:pt-48 lg:pb-24">
         <div className="container px-4 mx-auto max-w-1248">
           <PrimaryTitle text="Latest news" />
