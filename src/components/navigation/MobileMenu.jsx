@@ -3,7 +3,7 @@ import "../../styles/_mobileMenu.scss";
 import NavMenu from "./NavMenu";
 import accent from "../../assets/icons/accent.svg";
 
-const BurgerMenu = () => {
+const MenuMobile = () => {
   const [isOpen, setIsOpen] = useState(false); // Controls main menu open/close
   const [isMediaOpen, setIsMediaOpen] = useState(false); // Controls "Media Center" submenu
 
@@ -71,8 +71,8 @@ const BurgerMenu = () => {
       {/* Dropdown menu */}
       <div
         className={`${
-          isOpen ? "block" : "hidden"
-        } absolute top-0 left-0 z-40 w-full h-full bg-white shadow-lg transition-all duration-300 ease-in-out`}
+          isOpen ? "block h-full" : "hidden"
+        } sticky absolute top-0 left-0 z-40 w-full bg-white shadow-lg transition-all duration-300 ease-in-out`}
       >
         <div className="flex justify-between p-4 transition-opacity duration-300">
           <img src={accent} alt="accent" className="w-[72px]" />
@@ -133,4 +133,4 @@ const BurgerMenu = () => {
   );
 };
 
-export default BurgerMenu;
+export default MenuMobile 

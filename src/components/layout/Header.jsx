@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../../assets/identify/logo.svg";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import Breadcrumb from "../breadcrumbs/Breadcrumb";
-import BurgerMenu from "../navigation/MobileMenu";
+import MobileMenu from "../navigation/MobileMenu";
 import NavMenu from "../navigation/NavMenu";
 import MainTitle from "../typography/MainTitle";
 import EntryAnimation from "../EntryAnimation";
 
-// Defining breadcrumb elements
+// Elements breadcrumb
 const breadcrumbItems = [
   {
     label: "Home",
@@ -35,9 +35,25 @@ const breadcrumbItems = [
 ];
 
 const Header = () => {
-  const location = useLocation(); // Hook to get the current path
+  const location = useLocation(); // Hook do pobierania aktualnej ścieżki
+  const [isSticky, setIsSticky] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Function that sets the title and description based on the current page
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const getHeaderContent = () => {
     switch (location.pathname) {
       case "/":
@@ -83,51 +99,75 @@ const Header = () => {
     <header id="header" className="pt-6">
       <div className="container px-4 mx-auto max-w-1248">
         <EntryAnimation animationType="entry-bottom">
-          <div className="flex items-center justify-between mb-10 lg:mb-[72px]">
-            <a href="/" className="relative">
-              <img src={logo} alt="Logo" className="xl:w-[72px] w-[62px]" />
-            </a>
-            {/* Main navigation with NavLink for active state */}
-            <nav className="hidden lg:block xl:ms-[96px] lg:ms-6">
-              <NavMenu isMobile={false} />
-            </nav>
-
-            {/* Language Switcher */}
-            <div className="lang-switcher ms-auto sm:me-0 me-3">
-              <p className="transition duration-300 cursor-pointer font-sans3 hover:text-darkBlue-100">
-                العربية
-              </p>
-            </div>
-
-            {/* Search Icon */}
-            <div className="hidden mx-3 cursor-pointer xl:mx-5 search-btn sm:block group">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                className="transition-colors duration-300"
+          <div className="w-full bg-white">
+            <div
+              className={`flex items-center justify-between mb-10 lg:mb-[72px] ${isSticky
+                ? "sticky top-0 z-50 bg-white shadow-lg w-full py-2 transition-all duration-300 ease-in-out"
+                : ""
+                } ${isMobileMenuOpen ? "h-full" : ""}`}
+            >
+              <div
+                className={`container mx-auto max-w-1248 ${isSticky
+                  ? "px-4"
+                  : ""
+                  }`}
               >
-                <path
-                  d="M21.0004 21.0004L16.6504 16.6504M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                  stroke="#4B5563"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition-colors duration-300 group-hover:stroke-darkBlue-100"
-                />
-              </svg>
+                <div className="flex items-center justify-between">
+                  <a href="/" className="relative">
+                    <img
+                      src={logo}
+                      alt="Logo"
+                      className="xl:w-[72px] w-[62px]"
+                    />
+                  </a>
+
+                  {/* Menu main */}
+                  <nav className="hidden lg:block xl:ms-[96px] lg:ms-6">
+                    <NavMenu isMobile={false} />
+                  </nav>
+
+                  {/* Lang switcher */}
+                  <div className="lang-switcher ms-auto sm:me-0 me-3">
+                    <p className="transition duration-300 cursor-pointer font-sans3 hover:text-darkBlue-100">
+                      العربية
+                    </p>
+                  </div>
+
+                  {/* Search */}
+                  <div className="hidden mx-3 cursor-pointer xl:mx-5 search-btn sm:block group">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="transition-colors duration-300"
+                    >
+                      <path
+                        d="M21.0004 21.0004L16.6504 16.6504M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                        stroke="#4B5563"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-colors duration-300 group-hover:stroke-darkBlue-100"
+                      />
+                    </svg>
+                  </div>
+
+                  <ButtonPrimary />
+
+                  {/* Menu mobile */}
+                  <MobileMenu />
+                </div>
+              </div>
             </div>
-
-            <ButtonPrimary />
-
-            {/* BurgerMenu for mobile devices */}
-            <BurgerMenu />
           </div>
         </EntryAnimation>
+
+        {/* Breadcrumbs */}
         <EntryAnimation animationType="entry-left">
           <Breadcrumb items={breadcrumbItems} />
         </EntryAnimation>
+
         <div className="flex justify-between md:flex-row flex-col pt-10 lg:pt-[68px] md:gap-14 lg:gap-[100px] items-center pb-12 lg:pb-24">
           <div className="w-full md:basis-[75%]">
             <MainTitle text={title} />
@@ -137,6 +177,7 @@ const Header = () => {
               </p>
             </EntryAnimation>
           </div>
+
           <div className="w-full md:basis-[25%] md:block hidden">
             <EntryAnimation animationType="entry-right">
               <svg
