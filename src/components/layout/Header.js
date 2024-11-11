@@ -1,11 +1,11 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import logo from "../assets/identify/logo.svg";
-import ButtonPrimary from "./ButtonPrimary";
-import Breadcrumb from "./Breadcrumb";
-import BurgerMenu from "./BurgerMenu";
-import NavMenu from "./NavMenu";
-import MainTitle from "./MainTitle";
+import logo from "../../assets/identify/logo.svg";
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import Breadcrumb from "../breadcrumbs/Breadcrumb";
+import BurgerMenu from "../navigation/MobileMenu";
+import NavMenu from "../navigation/NavMenu";
+import MainTitle from "../typography/MainTitle";
 
 // Defining breadcrumb elements
 const breadcrumbItems = [

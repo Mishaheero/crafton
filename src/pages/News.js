@@ -1,7 +1,7 @@
 import React from "react";
-import PrimaryTitle from "../components/PrimaryTitle";
-import NewsSlider from "../components/NewsSlider";
-import NewsFilter from "../components/NewsFilter";
+import PrimaryTitle from "../components/typography/PrimaryTitle";
+import NewsSlider from "../components/sliders/NewsSlider";
+import NewsFilter from "../components/news/NewsFilter";
 
 const News = () => {
   return (

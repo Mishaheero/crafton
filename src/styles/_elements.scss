@@ -1,6 +1,19 @@
 .news-item {
-    border-style: solid;
-    border-image: linear-gradient(to left, rgba(194, 207, 214, 0.5), rgba(194, 207, 214, 0.2), rgba(194, 207, 214, 0)) 1;
-    border-radius: 24px;
-  }
-  
+  border-style: solid;
+  border-image: linear-gradient(
+      to left,
+      rgba(194, 207, 214, 0.5),
+      rgba(194, 207, 214, 0.2),
+      rgba(194, 207, 214, 0)
+    )
+    1;
+  border-radius: 24px;
+}
+
+.chevron-down-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

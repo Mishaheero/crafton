@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonScrollTop from "./ButtonScrollTop";
-import decorFooter from "../assets/icons/decor-footer.svg";
+import ButtonScrollTop from "../buttons/ButtonScrollTop";
+import decorFooter from "../../assets/icons/decor-footer.svg";
 
 const Footer = () => {
   return (

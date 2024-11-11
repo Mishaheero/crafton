@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.css"; // Import styles for flatpickr
-import "../styles/_customDatePicker.scss"; // Custom styles for the date picker
+
 
 const CustomDatePicker = ({ selectedDate, onDateChange }) => {
   const inputRef = useRef(null); // Reference for the input element

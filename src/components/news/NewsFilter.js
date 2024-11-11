@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ButtonReadMore from "./ButtonReadMore";
-import ButtonPrimary from "./ButtonPrimary";
-import DatePicker from "./DatePicker";
-import "../styles/_elements.scss";
-import "../styles/_form.scss";
+import ButtonReadMore from "../buttons/ButtonReadMore";
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import DatePicker from "../forms/DatePicker";
+import "../../styles/_elements.scss";
+import "../../styles/_form.scss";
 
 const NewsFilter = () => {
   const [news, setNews] = useState([]);

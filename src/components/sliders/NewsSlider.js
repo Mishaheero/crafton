@@ -2,11 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "../styles/_swiper.scss";
-import SliderTitle from "./SliderTitle";
-import photo1 from "../assets/images/photo-1.jpeg";
-import photo2 from "../assets/images/photo-2.jpeg";
-import photo3 from "../assets/images/photo-3.jpeg";
+import "../../styles/_swiper.scss";
+import SliderTitle from "../typography/SliderTitle";
+import photo1 from "../../assets/images/photo-1.jpeg";
+import photo2 from "../../assets/images/photo-2.jpeg";
+import photo3 from "../../assets/images/photo-3.jpeg";
 import { Link } from "react-router-dom";
 
 const slidesData = [

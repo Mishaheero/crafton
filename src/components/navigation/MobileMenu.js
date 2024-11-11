@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/_burgerMenu.scss";
+import "../../styles/_mobileMenu.scss";
 import NavMenu from "./NavMenu";
-import accent from "../assets/icons/accent.svg";
+import accent from "../../assets/icons/accent.svg";
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false); // Controls main menu open/close

@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer"; 
-
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer"; 
+import './styles/master.scss';
 
 import News from "./pages/News"; 
 import WhoWeAre from "./pages/WhoWeAre";
