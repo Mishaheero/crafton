@@ -22,11 +22,10 @@ const NewsFilter = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const agricultureResponse = await fetch("/data/agriculture.json");
-        const agriTechResponse = await fetch("/data/agri-tech.json");
-        const farmingResponse = await fetch("/data/farming.json");
-
-        // Check if the responses are successful
+        const agricultureResponse = await fetch(`${process.env.PUBLIC_URL}/data/agriculture.json`);
+        const agriTechResponse = await fetch(`${process.env.PUBLIC_URL}/data/agri-tech.json`);
+        const farmingResponse = await fetch(`${process.env.PUBLIC_URL}/data/farming.json`);
+  
         if (
           agricultureResponse.ok &&
           agriTechResponse.ok &&
@@ -35,20 +34,22 @@ const NewsFilter = () => {
           const agricultureData = await agricultureResponse.json();
           const agriTechData = await agriTechResponse.json();
           const farmingData = await farmingResponse.json();
-
-          // Combine all the data
-          const allNews = [...agricultureData, ...agriTechData, ...farmingData];
-
-          setNews(allNews);
-          setFilteredNews(allNews);
+  
+          if (agricultureData && agriTechData && farmingData) {
+            const allNews = [...agricultureData, ...agriTechData, ...farmingData];
+            setNews(allNews);
+            setFilteredNews(allNews);
+          } else {
+            console.error("Dane w plikach JSON są puste.");
+          }
         } else {
-          console.error("Failed to fetch news data");
+          console.error("Błąd podczas pobierania danych", agricultureResponse.status, agriTechResponse.status, farmingResponse.status);
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Wystąpił błąd podczas pobierania danych:", error);
       }
     };
-
+  
     fetchNews();
   }, []);
 
