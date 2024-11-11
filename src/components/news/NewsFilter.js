@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ButtonReadMore from "../buttons/ButtonReadMore";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import DatePicker from "../forms/DatePicker";
+import EntryAnimation from "../EntryAnimation";
 import "../../styles/_elements.scss";
 import "../../styles/_form.scss";
 
@@ -80,7 +81,7 @@ const NewsFilter = () => {
       });
     }
 
-   // Filter by date if specified
+    // Filter by date if specified
     if (date) {
       const parsedDate = parseDate(date);
       filtered = filtered.filter((newsItem) => {
@@ -89,7 +90,7 @@ const NewsFilter = () => {
       });
     }
 
-   // Sort by date if the "sort" option is "date"
+    // Sort by date if the "sort" option is "date"
     if (sort === "date") {
       filtered = filtered.sort((a, b) => {
         const dateA = parseDate(a.date);
@@ -100,12 +101,12 @@ const NewsFilter = () => {
       filtered = filtered.sort((a, b) => a.title.localeCompare(b.title));
     }
 
-   // Update the state with the filtered news list
+    // Update the state with the filtered news list
     setFilteredNews(filtered);
     setCurrentPage(1);
   };
 
-// Function to handle page change
+  // Function to handle page change
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -137,127 +138,137 @@ const NewsFilter = () => {
     applyFilters(selectedCategory, term, selectedDate, sortBy);
   };
 
- // Handles sort option change and reapplies filters
+  // Handles sort option change and reapplies filters
   const handleSortChange = (e) => {
     const sortByValue = e.target.value;
     setSortBy(sortByValue);
     applyFilters(selectedCategory, searchTerm, selectedDate, sortByValue);
   };
 
- // Resets all filters and shows the original news list
+  // Resets all filters and shows the original news list
   const resetFilters = () => {
     setSelectedCategory("");
     setSearchTerm("");
     setSelectedDate("");
     setSortBy("");
     setFilteredNews(news);
+     setCurrentPage(1);
   };
 
   return (
     <div>
       {/* Filter form */}
-      <form
-        className="flex flex-col flex-wrap justify-between gap-5 my-12 text-xs sm:text-sm sm:flex-row lg:mb-14 lg:mt-16"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <div className="h-auto">
-          <input
-            className={`px-8 py-3 sm:px-6 h-full sm:pt-4 sm:pb-3 border text-xs sm:text-sm rounded-3xl w-full sm:w-48 xl:w-[376px] text-black-100 ${
-              isActive ? "border-gray-100" : "border-gray-200"
-            }`}
-            type="search"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            onFocus={() => setIsActive(true)}
-            onBlur={() => setIsActive(false)}
-            placeholder="Search"
+      <EntryAnimation animationType="entry-bottom">
+        <form
+          className="flex flex-col flex-wrap justify-between gap-5 my-12 text-xs sm:text-sm sm:flex-row lg:mb-14 lg:mt-16"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <div className="h-auto">
+            <input
+              className={`px-8 py-3 sm:px-6 h-full sm:pt-4 sm:pb-3 border text-xs sm:text-sm rounded-3xl w-full sm:w-48 xl:w-[376px] text-black-100 ${
+                isActive ? "border-gray-100" : "border-gray-200"
+              }`}
+              type="search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              onFocus={() => setIsActive(true)}
+              onBlur={() => setIsActive(false)}
+              placeholder="Search"
+            />
+          </div>
+
+          <select
+            className="px-8 py-3 sm:px-6 sm:pt-4 sm:pb-3 border text-xs sm:text-sm rounded-3xl text-black-100 w-full sm:w-[191px]"
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
+            <option value="" disabled>
+              Category{" "}
+            </option>
+            <option value="">All</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Agri-Tech">Agri-Tech</option>
+            <option value="Farming">Farming</option>
+          </select>
+
+          {/* Date selection */}
+          <DatePicker
+            selectedDate={selectedDate}
+            onDateChange={(date) => {
+              setSelectedDate(date);
+              applyFilters(selectedCategory, searchTerm, date, sortBy);
+            }}
           />
-        </div>
 
-        <select
-          className="px-8 py-3 sm:px-6 sm:pt-4 sm:pb-3 border text-xs sm:text-sm rounded-3xl text-black-100 w-full sm:w-[191px]"
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-        >
-          <option value="" disabled>
-            Category{" "}
-          </option>
-          <option value="">All</option>
-          <option value="Agriculture">Agriculture</option>
-          <option value="Agri-Tech">Agri-Tech</option>
-          <option value="Farming">Farming</option>
-        </select>
+          <select
+            className="px-8 py-3 sm:px-6 sm:pt-4 sm:pb-3 border text-xs sm:text-sm rounded-3xl text-black-100 w-full sm:w-[191px]"
+            onChange={handleSortChange}
+            value={sortBy}
+          >
+            <option className="hidden" value="" disabled>
+              Sort by
+            </option>
+            <option value="date">Sort by Date</option>
+            <option value="title">Sort by Title</option>
+          </select>
 
-        {/* Date selection */}
-        <DatePicker
-          selectedDate={selectedDate}
-          onDateChange={(date) => {
-            setSelectedDate(date);
-            applyFilters(selectedCategory, searchTerm, date, sortBy);
-          }}
-        />
-
-        <select
-          className="px-8 py-3 sm:px-6 sm:pt-4 sm:pb-3 border text-xs sm:text-sm rounded-3xl text-black-100 w-full sm:w-[191px]"
-          onChange={handleSortChange}
-          value={sortBy}
-        >
-          <option className="hidden" value="" disabled>
-            Sort by
-          </option>
-
-          <option value="date">Sort by Date</option>
-          <option value="title">Sort by Title</option>
-        </select>
-
-        <button
-          className="px-8 py-3 text-xs font-medium transition duration-300 bg-gray-100 rounded-lg md:bg-transparent hover:text-darkBlue-400 md:text-sm xl:px-10 xl:py-4 md:hover:bg-gray-100"
-          type="button"
-          onClick={resetFilters}
-        >
-          Reset Filters
-        </button>
-      </form>
+          <button
+            className="px-8 py-3 text-xs font-medium transition duration-300 bg-gray-100 rounded-lg md:bg-transparent hover:text-darkBlue-400 md:text-sm xl:px-10 xl:py-4 md:hover:bg-gray-100"
+            type="button"
+            onClick={resetFilters}
+          >
+            Reset Filters
+          </button>
+        </form>
+      </EntryAnimation>
 
       {/* Displaying results */}
       <div className="grid grid-cols-1 mb-10 md:mb-16 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 news-list">
         {currentItems.length > 0 ? (
           currentItems.map((newsItem, index) => (
-            <div
-              className="relative overflow-hidden border-gray-200 rounded-3xl border-e"
+            <EntryAnimation
               key={`${newsItem.id}-${newsItem.category}-${index}`}
+              animationType="entry-bottom"
             >
-              <div className="relative flex flex-col items-stretch h-full px-6 py-5 border-t border-b border-e-transparent rounded-3xl rounded-e-xl news-item">
-                <div className="relative">
-                  <img
-                    className="w-full h-[227px] rounded-3xl"
-                    src={newsItem.image}
-                    alt={newsItem.title}
-                  />
-                  {index === 0 && (
-                    <div className="absolute top-0 right-0 z-10 px-4 py-2 m-4 bg-green-400 rounded-2xl">
-                      <p className="font-normal text-white text-xxs font-sans2">New</p>
-                    </div>
-                  )}
-                </div>
-                <div className="flex items-center mt-6 mb-3">
-                  <div className="px-3 py-1 bg-green-100 rounded-2xl me-2">
-                    <p className="font-normal text-green-400 text-xxs font-sans2">5 min read</p>
+              <div className="relative h-full overflow-hidden border-gray-200 rounded-3xl border-e">
+                <div className="relative flex flex-col items-stretch h-full px-6 py-5 border-t border-b border-e-transparent rounded-3xl rounded-e-xl news-item">
+                  <div className="relative">
+                    <img
+                      className="w-full h-[227px] rounded-3xl"
+                      src={newsItem.image}
+                      alt={newsItem.title}
+                    />
+                    {index === 0 && (
+                      <div className="absolute top-0 right-0 z-10 px-4 py-2 m-4 bg-green-400 rounded-2xl">
+                        <p className="font-normal text-white text-xxs font-sans2">
+                          New
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <p className="text-sm font-normal text-green-400 font-sans2">{newsItem.date}</p>
-                </div>
-                <h3 className="mb-3 text-darkBlue-400 text-md">
-                  {newsItem.title}
-                </h3>
-                <p className="mb-6 text-sm md:text-base text-black-100">
-                  {newsItem.description}
-                </p>
-                <div className="flex items-center justify-between mt-auto">
-                  <p className="text-sm text-green-400">by Company</p>
-                  <ButtonReadMore />
+                  <div className="flex items-center mt-6 mb-3">
+                    <div className="px-3 py-1 bg-green-100 rounded-2xl me-2">
+                      <p className="font-normal text-green-400 text-xxs font-sans2">
+                        5 min read
+                      </p>
+                    </div>
+                    <p className="text-sm font-normal text-green-400 font-sans2">
+                      {newsItem.date}
+                    </p>
+                  </div>
+                  <h3 className="mb-3 text-darkBlue-400 text-md">
+                    {newsItem.title}
+                  </h3>
+                  <p className="mb-6 text-sm md:text-base text-black-100">
+                    {newsItem.description}
+                  </p>
+                  <div className="flex items-center justify-between mt-auto">
+                    <p className="text-sm text-green-400">by Company</p>
+                    <ButtonReadMore />
+                  </div>
                 </div>
               </div>
-            </div>
+            </EntryAnimation>
           ))
         ) : (
           <p>No news available with the selected filters.</p>

@@ -1,0 +1,73 @@
+@keyframes entry-left {
+    0% {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(10px);
+    }
+    100% {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes entry-right {
+    0% {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(-10px);
+    }
+    100% {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes entry-bottom {
+    0% {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+    100% {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .entry,
+  .hide {
+    opacity: 0;
+    transform: translateY(50px); /* Początkowe przesunięcie */
+    transition: opacity 0.5s, transform 0.5s; /* Płynna animacja */
+  }
+  
+  .entered,
+  .show {
+    &.entry-left {
+      animation: 2s var(--cubic-bezier-out) 0s 1 entry-left;
+    }
+  
+    &.entry-right {
+      animation: 2s var(--cubic-bezier-out) 0s 1 entry-right;
+    }
+  
+    &.entry-bottom {
+      animation: 2s var(--cubic-bezier-out) 0s 1 entry-bottom;
+    }
+  }
+  
