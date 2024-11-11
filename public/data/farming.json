@@ -5,7 +5,7 @@
     "description": "Biological pest control methods are gaining traction as sustainable alternatives to chemical pesticides. These innovative strategies promise to protect crops while promoting ecological balance.",
     "category": "Farming",
     "date": "06/03/2024",
-    "image": "/assets/images-posts/pest-control.jpeg"
+    "image": "/assets/pest-control.jpeg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "description": "Consumer demand for organic produce continues to rise, influencing market trends. Farmers are adapting to this shift by increasing their organic offerings to meet consumer preferences.",
     "category": "Farming",
     "date": "27/08/2024",
-    "image": "/assets/images-posts/organic.jpeg"
+    "image": "/assets/organic.jpeg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "description": "This guide provides insights into eco-friendly farming practices that promote sustainability. From organic methods to resource conservation, learn how to enhance your farm’s environmental impact.",
     "category": "Farming",
     "date": "20/02/2024",
-    "image": "/assets/images-posts/eco.jpeg"
+    "image": "/assets/eco.jpeg"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "description": "Precision agriculture techniques are significantly boosting efficiency in farming. By utilizing data analytics and technology, farmers can optimize their operations and improve yields.",
     "category": "Farming",
     "date": "07/02/2024",
-    "image": "/assets/images-posts/precision.jpeg"
+    "image": "/assets/precision.jpeg"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "description": "The impact of drought conditions is being felt across the agricultural sector, significantly affecting crop yields. Farmers must adapt their strategies to mitigate these effects and ensure food security.",
     "category": "Farming",
     "date": "21/03/2024",
-    "image": "/assets/images-posts/agricultural.jpeg"
+    "image": "/assets/agricultural.jpeg"
   },
 
   {
@@ -46,7 +46,7 @@
     "description": "Biological pest control methods are gaining traction as sustainable alternatives to chemical pesticides. These innovative strategies promise to protect crops while promoting ecological balance.",
     "category": "Farming",
     "date": "06/03/2024",
-    "image": "/assets/images-posts/pest-control.jpeg"
+    "image": "/assets/pest-control.jpeg"
   },
   {
     "id": 7,
@@ -54,7 +54,7 @@
     "description": "Consumer demand for organic produce continues to rise, influencing market trends. Farmers are adapting to this shift by increasing their organic offerings to meet consumer preferences.",
     "category": "Farming",
     "date": "27/08/2024",
-    "image": "/assets/images-posts/organic.jpeg"
+    "image": "/assets/organic.jpeg"
   },
   {
     "id": 8,
@@ -62,7 +62,7 @@
     "description": "This guide provides insights into eco-friendly farming practices that promote sustainability. From organic methods to resource conservation, learn how to enhance your farm’s environmental impact.",
     "category": "Farming",
     "date": "20/02/2024",
-    "image": "/assets/images-posts/eco.jpeg"
+    "image": "/assets/eco.jpeg"
   },
   {
     "id": 9,
@@ -70,7 +70,7 @@
     "description": "Precision agriculture techniques are significantly boosting efficiency in farming. By utilizing data analytics and technology, farmers can optimize their operations and improve yields.",
     "category": "Farming",
     "date": "07/02/2024",
-    "image": "/assets/images-posts/precision.jpeg"
+    "image": "/assets/precision.jpeg"
   },
   {
     "id": 10,
@@ -78,6 +78,6 @@
     "description": "The impact of drought conditions is being felt across the agricultural sector, significantly affecting crop yields. Farmers must adapt their strategies to mitigate these effects and ensure food security.",
     "category": "Farming",
     "date": "21/03/2024",
-    "image": "/assets/images-posts/agricultural.jpeg"
+    "image": "/assets/agricultural.jpeg"
   }
 ]

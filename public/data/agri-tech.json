@@ -5,7 +5,7 @@
     "description": "Emerging technologies are transforming agriculture, enhancing productivity and sustainability. From precision farming to AI-driven analytics, these innovations are revolutionizing traditional farming...",
     "category": "Agri-tech",
     "date": "14/04/2024",
-    "image": "../assets/images-posts/agriculture.jpeg"
+    "image": "/assets/agriculture.jpeg"
   },
   {
     "id": 2,
@@ -13,6 +13,6 @@
     "description": "Discover the top five agri-tech innovations making waves in the industry. These advancements are paving the way for more efficient, sustainable, and profitable farming practices.",
     "category": "Agri-tech",
     "date": "27/08/2024",
-    "image": "../assets/images-posts/innovations.jpeg"
+    "image": "/assets/innovations.jpeg"
   }
 ]
