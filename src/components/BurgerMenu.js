@@ -35,7 +35,7 @@ const BurgerMenu = () => {
   }, [isOpen]);
 
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden ms-3">
       {/* Burger button */}
       <button
         onClick={toggleMenu}

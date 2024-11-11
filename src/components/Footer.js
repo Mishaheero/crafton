@@ -6,28 +6,28 @@ const Footer = () => {
   return (
     <footer className="relative pt-[59px] pb-[95px] bg-darkBlue-500">
       <div className="container px-4 mx-auto max-w-1248">
-        <div className="flex flex-col items-center justify-between w-full gap-5 md:gap-0 md:flex-row">
+        <div className="flex flex-col items-center justify-between w-full gap-10 md:gap-0 md:flex-row">
           <nav>
             <ul className="flex flex-col items-center text-white md:flex-row">
               <li className="mb-5 md:mb-0 md:me-12">
-                <a className="font-light" href="/home">
+                <a className="text-xs font-light" href="/home">
                   Copyright © Salic 2024
                 </a>
               </li>
               <li className="mb-5 md:mb-0 md:me-12">
-                <a className="font-light" href="/policy">
+                <a className="text-xs font-light" href="/policy">
                   Privacy Policy
                 </a>
               </li>
-              <li className="mb-5 md:mb-0 md:me-12">
-                <a className="font-light" href="/site-map">
+              <li>
+                <a className="text-xs font-light" href="/site-map">
                   Site map
                 </a>
               </li>
             </ul>
           </nav>
-          <div className="flex flex-col items-center md:flex-row">
-            <div className="flex items-center mb-5 md:mb-0">
+          <div className="flex flex-col items-center gap-10 md:flex-row md:gap-0">
+            <div className="flex items-center">
               <a
                 href="https://facebook.com"
                 target="_blank"

@@ -236,24 +236,24 @@ const NewsFilter = () => {
                   />
                   {index === 0 && (
                     <div className="absolute top-0 right-0 z-10 px-4 py-2 m-4 bg-green-400 rounded-2xl">
-                      <p className="text-white text-xxs">New</p>
+                      <p className="font-normal text-white text-xxs font-sans2">New</p>
                     </div>
                   )}
                 </div>
                 <div className="flex items-center mt-6 mb-3">
                   <div className="px-3 py-1 bg-green-100 rounded-2xl me-2">
-                    <p className="text-green-400 text-xxs">5 min read</p>
+                    <p className="font-normal text-green-400 text-xxs font-sans2">5 min read</p>
                   </div>
-                  <p className="text-green-400 text-xxs">{newsItem.date}</p>
+                  <p className="text-sm font-normal text-green-400 font-sans2">{newsItem.date}</p>
                 </div>
                 <h3 className="mb-3 text-darkBlue-400 text-md">
                   {newsItem.title}
                 </h3>
-                <p className="mb-6 text-xs md:text-base text-black-100">
+                <p className="mb-6 text-sm md:text-base text-black-100">
                   {newsItem.description}
                 </p>
                 <div className="flex items-center justify-between mt-auto">
-                  <p className="text-green-400 text-xxs">by Company</p>
+                  <p className="text-sm text-green-400">by Company</p>
                   <ButtonReadMore />
                 </div>
               </div>
@@ -274,7 +274,7 @@ const NewsFilter = () => {
             id="itemsPerPage"
             value={itemsPerPage}
             onChange={handleItemsPerPageChange}
-            className="py-3 text-xs items me-3 rounded-3xl md:text-sm"
+            className="pt-[13px] pb-[11px] text-xs items me-3 rounded-3xl md:text-sm"
           >
             <option value={3}>3</option>
             <option value={6}>6</option>
@@ -283,19 +283,19 @@ const NewsFilter = () => {
           <span className="text-xs md:text-sm">{` ${currentItems.length} of ${filteredNews.length} courses `}</span>
         </div>
 
-        <div className="flex justify-center w-full space-x-2 md:justify-end pagination md:w-1/2 md:order-1 order-0">
-          <div className="flex items-center space-x-4 pagination">
+        <div className="flex justify-center w-full md:justify-end pagination md:w-1/2 md:order-1 order-0">
+          <div className="flex items-center pagination">
             <ButtonPrimary
               onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
               text="Previous"
               disabled={currentPage === 1}
               className="me-0"
             />
-            <div className="flex items-center text-sm">
-              <div className="px-4 py-3 border rounded-full me-2">
+            <div className="flex items-center mx-3 text-sm lg:mx-6">
+              <div className="text-xs md:text-sm pt-[13px] pb-[11px] px-4 md:px-[18px] border rounded-full me-2">
                 {currentPage}
               </div>{" "}
-              <div>of {totalPages}</div>
+              <div className="text-xs md:text-sm">of {totalPages}</div>
             </div>
             <ButtonPrimary
               onClick={() =>
@@ -303,6 +303,7 @@ const NewsFilter = () => {
               }
               text="Next"
               disabled={currentPage === totalPages}
+              className="me-0"
             />
           </div>
         </div>

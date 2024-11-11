@@ -43,7 +43,6 @@ const CustomDatePicker = ({ selectedDate, onDateChange }) => {
       <input
         ref={inputRef}
         type="text"
-        value={date ? date : ""} // Display selected date or an empty string if no date is selected
         onChange={(e) => setDate(e.target.value)} // Update local state when user types in the input
         className="input-custom h-full px-8 py-3 sm:px-6 sm:pt-4 sm:pb-3 border text-xs sm:text-sm rounded-3xl text-black-100 w-full sm:w-[191px]"
         placeholder="Date" // Placeholder for the input field

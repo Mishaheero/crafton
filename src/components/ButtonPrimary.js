@@ -5,7 +5,7 @@ const ButtonPrimary = ({ onClick, text = "Go to portal", disabled = false, class
         <button 
             onClick={onClick} 
             disabled={disabled}
-            className={`px-8 py-3 text-xs font-medium text-white transition duration-300 rounded-lg md:text-sm lg:me-0 me-3 xl:px-10 xl:py-4 
+            className={`px-8 py-3 text-xs font-medium text-white transition duration-300 rounded-lg md:text-sm xl:px-10 xl:py-4 
                 ${disabled ? "bg-gray-300 cursor-not-allowed" : "bg-darkBlue-400 hover:bg-darkBlue-500"} ${className}`}
         >
             {text}

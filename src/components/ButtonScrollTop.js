@@ -12,8 +12,8 @@ const ButtonScroll = () => {
   };
 
   return (
-    <button className="p-4 bg-green-400 rounded-lg" onClick={scrollToTop}>
-      <svg
+    <button className="p-4 transition duration-300 bg-green-400 rounded-lg hover:bg-green-200 group" onClick={scrollToTop}>
+      <svg className="transition duration-300 group-hover:-translate-y-1"
         width="24"
         height="24"
         viewBox="0 0 24 24"

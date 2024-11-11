@@ -97,7 +97,7 @@ const Header = () => {
 
           {/* Language Switcher */}
           <div className="lang-switcher ms-auto sm:me-0 me-3">
-            <p className="transition duration-300 cursor-pointer hover:text-darkBlue-100">
+            <p className="transition duration-300 cursor-pointer font-sans3 hover:text-darkBlue-100">
               العربية
             </p>
           </div>
