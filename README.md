@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Recruitment Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The goal of the project was to create a responsive web application that aligns with the design provided in Figma. The application was built using **React JS**, **Swiper** for carousels, **Tailwind CSS** for styling, and **Flatpickr** for date selection. The project also implements **lazy loading** and dynamic fetching of data from **local JSON files**.
 
-## Available Scripts
+## Technologies
 
-In the project directory, you can run:
+- **React JS**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **Swiper**: A modern library to create responsive, touch-enabled carousels and sliders.
+- **Flatpickr**: A lightweight and feature-rich date picker library.
+- **Local JSON Files**: The application fetches data and images from locally stored JSON files.
+- **Lazy Loading**: Images and resources are loaded only when they are in the viewport, optimizing performance.
 
-### `npm start`
+## Interactivity
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React JS**: Used for building the interactive components of the application, with state management to handle dynamic data and update the UI accordingly.
+- **Swiper**: A carousel/slider library used to display content in a visually appealing, responsive way.
+- **Flatpickr**: Integrated into form elements to provide an intuitive and smooth date-picking experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Data Fetching
 
-### `npm test`
+The project fetches data and images dynamically from **locally stored JSON files** instead of an external API. This allows for easy data management and testing in a development environment. Lazy loading is used to ensure that images and resources are only loaded when they are about to enter the viewport, improving performance and page load times.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## GitHub Repository
 
-### `npm run build`
+The entire project is hosted on GitHub. Example commit naming conventions include:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Feature**: Add Swiper carousel integration
+- **Refactor**: Resolve date picker issue with Flatpickr
+- **Style**: Update Tailwind styling for mobile responsiveness
+- **Docs**: Update README with project setup instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Run the Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the project, follow these steps:
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Node.js**: Ensure you have the latest version of Node.js installed. You can download it from the [Node.js website](https://nodejs.org).
+- **NPM**: Installing Node.js usually includes npm (Node Package Manager), which is required for installing dependencies.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installing Dependencies and Running the Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Clone the Repository**: Start by cloning the repository to your local machine:
+   ```bash
+   git clone https://github.com/Mishaheero/crafton.git
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Navigate into the Project Directory**: Go to the project folder where the repository was cloned:
+   ```bash
+   cd crafton
+3. **Install the Required Dependencies**: Install the necessary npm packages and dependencies that are listed in the package.json file:
+   ```bash
+   npm install
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Building the Production Version
+To create an optimized production build of the project, run:
+npm run build
