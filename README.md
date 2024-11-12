@@ -1,4 +1,5 @@
 # Recruitment Task
+https://mishaheero.github.io/crafton/
 
 The goal of the project was to create a responsive web application that aligns with the design provided in Figma. The application was built using **React JS**, **Swiper** for carousels, **Tailwind CSS** for styling, and **Flatpickr** for date selection. The project also implements **lazy loading** and dynamic fetching of data from **local JSON files**.
 
@@ -51,6 +52,10 @@ To run the project, follow these steps:
 3. **Install the Required Dependencies**: Install the necessary npm packages and dependencies that are listed in the package.json file:
    ```bash
    npm install
+
+4. **Running the application**: To start the application on a local server, use the following command:
+   ```bash
+   npm start
 
 ### Building the Production Version
 To create an optimized production build of the project, run:
