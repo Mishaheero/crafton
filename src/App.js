@@ -32,13 +32,10 @@ const App = () => {
           <Route path="/impact" element={<OurImpact />} />
 
           {/* Page Media Center */}
-          <Route path="/media" element={<MediaCenter/>} />
+          <Route path="/media" element={<MediaCenter />} />
 
           {/* Page News */}
-          <Route
-            path="/media/news"
-            element={<News />} 
-          />
+          <Route path="/media/news" element={<News />} />
 
           {/* Page Contact */}
           <Route path="/contact" element={<Contact />} />

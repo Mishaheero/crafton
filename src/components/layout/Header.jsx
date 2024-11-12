@@ -113,7 +113,7 @@ const Header = () => {
                   }`}
               >
                 <div className="flex items-center justify-between">
-                  <a href="/" className="relative">
+                  <a href="/crafton" className="relative">
                     <img
                       src={logo}
                       alt="Logo"

@@ -237,7 +237,7 @@ const NewsFilter = () => {
                   <div className="relative h-[227px] w-full">
                     <LazyImage
                       className="rounded-3xl"
-                      src={newsItem.image}
+                      src={`${process.env.PUBLIC_URL}${newsItem.image}`}
                       alt={newsItem.title}
                     />
                     {index === 0 && (
