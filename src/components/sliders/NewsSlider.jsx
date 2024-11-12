@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import EntryAnimation from "../EntryAnimation";
-import LazyImage from "../LazyImage"; 
+import LazyImage from "../LazyImage";
 import "swiper/css";
 import "../../styles/_swiper.scss";
 import SliderTitle from "../typography/SliderTitle";
@@ -47,18 +47,6 @@ const slidesData = [
 const NewsSlider = () => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const swiperRef = useRef(null);
-
-  useEffect(() => {
-    // Delayed initialization of navigation to ensure the refs are correctly set
-    if (swiperRef.current) {
-      swiperRef.current.swiper.params.navigation.prevEl = prevRef.current;
-      swiperRef.current.swiper.params.navigation.nextEl = nextRef.current;
-      swiperRef.current.swiper.update();
-    }
-  }, []);
 
   const paginationConfig = {
     el: "#containerForBullets",
@@ -72,11 +60,10 @@ const NewsSlider = () => {
     <EntryAnimation animationType="entry-right">
       <div className="relative pt-12 lg:pt-24 news-slider-container">
         <Swiper
-          ref={swiperRef}
           modules={[Navigation, Pagination, Scrollbar]}
           navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
+            prevEl: ".swiper-button-prev",  // Przypisujemy klasy CSS bezpośrednio
+            nextEl: ".swiper-button-next",  // do przycisków nawigacyjnych
           }}
           pagination={paginationConfig}
           spaceBetween={32}
@@ -85,10 +72,6 @@ const NewsSlider = () => {
           onSlideChange={(swiper) => {
             setIsBeginning(swiper.isBeginning);
             setIsEnd(swiper.isEnd);
-          }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
           }}
           breakpoints={{
             1024: {
@@ -146,7 +129,6 @@ const NewsSlider = () => {
         <div className="relative bottom-0 right-0 z-10 flex items-center justify-center w-full mt-8 lg:w-1/2 lg:absolute lg:justify-between">
           <div>
             <button
-              ref={prevRef}
               className={`p-3 lg:p-4 border rounded-lg swiper-button-prev custom-prev lg:ms-4 me-2 ${
                 isBeginning ? "border-gray-400" : "border-green-400"
               }`}
@@ -163,7 +145,6 @@ const NewsSlider = () => {
               </svg>
             </button>
             <button
-              ref={nextRef}
               className={`p-3 lg:p-4 border rounded-lg swiper-button-next custom-next ${
                 isEnd ? "border-gray-400" : "border-green-400"
               }`}
