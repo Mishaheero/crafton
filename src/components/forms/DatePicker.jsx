@@ -17,6 +17,8 @@ const CustomDatePicker = ({ selectedDate, onDateChange }) => {
               ? new Date(date.split("/").reverse().join("-"))  // Convert date string to format YYYY-MM-DD
               : date)
           : null,
+        placeholder: "Date",
+        disableMobile: true, 
         onChange: (selectedDates) => {
           const selectedDate = selectedDates[0]; // Get the first selected date
           setDate(selectedDate); // Update local state with the selected date
