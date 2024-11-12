@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/crafton/static/css/main.0b24b5d6.css",
-    "main.js": "/crafton/static/js/main.91155383.js",
+    "main.js": "/crafton/static/js/main.4ada51bd.js",
     "static/media/photo-3.jpeg": "/crafton/static/media/photo-3.b74304dbd92378ba6a0a.jpeg",
     "static/media/photo-1.jpeg": "/crafton/static/media/photo-1.4b9930afe2b137ec2b0c.jpeg",
     "static/media/photo-2.jpeg": "/crafton/static/media/photo-2.d7ff841a209cd4516293.jpeg",
@@ -28,10 +28,10 @@
     "static/media/x.svg": "/crafton/static/media/x.52e928c1c8f51dff014d3d35e21964a2.svg",
     "static/media/chevron-breadcrumbs.svg": "/crafton/static/media/chevron-breadcrumbs.c6ac51546763299ccf28300c08b848e3.svg",
     "main.0b24b5d6.css.map": "/crafton/static/css/main.0b24b5d6.css.map",
-    "main.91155383.js.map": "/crafton/static/js/main.91155383.js.map"
+    "main.4ada51bd.js.map": "/crafton/static/js/main.4ada51bd.js.map"
   },
   "entrypoints": [
     "static/css/main.0b24b5d6.css",
-    "static/js/main.91155383.js"
+    "static/js/main.4ada51bd.js"
   ]
 }
