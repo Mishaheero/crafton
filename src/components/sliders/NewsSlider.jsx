@@ -51,6 +51,13 @@ const NewsSlider = () => {
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
+   // Use onSwiper to initialize navigation after Swiper is created
+   const onSwiperInit = (swiper) => {
+    swiper.params.navigation.prevEl = prevRef.current;
+    swiper.params.navigation.nextEl = nextRef.current;
+    swiper.update();  // Force an update to apply navigation settings
+  };
+
   useEffect(() => {
     // Delayed initialization of navigation to ensure the refs are correctly set
     if (swiperRef.current) {
@@ -82,6 +89,7 @@ const NewsSlider = () => {
           spaceBetween={32}
           slidesPerView={2}
           speed={800}
+          onSwiper={onSwiperInit}
           onSlideChange={(swiper) => {
             setIsBeginning(swiper.isBeginning);
             setIsEnd(swiper.isEnd);

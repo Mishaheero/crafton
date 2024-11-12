@@ -98,7 +98,7 @@ const Header = () => {
   return (
     <header id="header" className="pt-6">
       <div className="container px-4 mx-auto max-w-1248">
-        <EntryAnimation animationType="entry-bottom">
+        <EntryAnimation animationType="entry-bottom" disableOnMobile={true}>
           <div className="w-full bg-white">
             <div
               className={`flex items-center justify-between mb-10 lg:mb-[72px] ${isSticky
