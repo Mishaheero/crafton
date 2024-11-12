@@ -52,6 +52,7 @@ const NewsSlider = () => {
   const swiperRef = useRef(null);
 
   useEffect(() => {
+    // Delayed initialization of navigation to ensure the refs are correctly set
     if (swiperRef.current) {
       swiperRef.current.swiper.params.navigation.prevEl = prevRef.current;
       swiperRef.current.swiper.params.navigation.nextEl = nextRef.current;
@@ -65,11 +66,6 @@ const NewsSlider = () => {
     bulletClass: "swiper-custom-bullet",
     bulletActiveClass: "swiper-custom-bullet-active",
     clickable: true,
-  };
-
-  const handleSlideChange = (swiper) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
   };
 
   return (
@@ -86,7 +82,10 @@ const NewsSlider = () => {
           spaceBetween={32}
           slidesPerView={2}
           speed={800}
-          onSlideChange={handleSlideChange}
+          onSlideChange={(swiper) => {
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+          }}
           onBeforeInit={(swiper) => {
             swiper.params.navigation.prevEl = prevRef.current;
             swiper.params.navigation.nextEl = nextRef.current;
